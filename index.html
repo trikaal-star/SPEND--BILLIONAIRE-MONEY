@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spend a Billionaire's Money</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #00796b;
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+    }
+    .money {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .item {
+      background: #fff;
+      border: 2px solid #b2dfdb;
+      border-radius: 10px;
+      padding: 20px;
+      width: 200px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item button {
+      background: #00796b;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .item button:hover {
+      background: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <h1>Spend Elon Musk's Money</h1>
+  <div class="money" id="money">$335,000,000,000</div>
+
+  <div class="items">
+    <div class="item">
+      <h3>iPhone 15</h3>
+      <p>$1,200</p>
+      <button onclick="buyItem(1200)">Buy</button>
+    </div>
+    <div class="item">
+      <h3>Lamborghini</h3>
+      <p>$200,000</p>
+      <button onclick="buyItem(200000)">Buy</button>
+    </div>
+    <div class="item">
+      <h3>Private Jet</h3>
+      <p>$40,000,000</p>
+      <button onclick="buyItem(40000000)">Buy</button>
+    </div>
+    <div class="item">
+      <h3>Twitter</h3>
+      <p>$44,000,000,000</p>
+      <button onclick="buyItem(44000000000)">Buy</button>
+    </div>
+    <div class="item">
+      <h3>Football Club</h3>
+      <p>$2,000,000,000</p>
+      <button onclick="buyItem(2000000000)">Buy</button>
+    </div>
+  </div>
+
+  <script>
+    let money = 335000000000;
+    const moneyEl = document.getElementById("money");
+
+    function buyItem(cost) {
+      if (money >= cost) {
+        money -= cost;
+        updateMoney();
+      } else {
+        alert("Not enough money!");
+      }
+    }
+
+    function updateMoney() {
+      moneyEl.textContent = "$" + money.toLocaleString();
+    }
+  </script>
+</body>
+</html>
